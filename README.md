@@ -34,12 +34,4 @@ This is a web-based Laboratory Booking System designed for instructors and Lab T
 - `labto/` – LabTO dashboard and pages
 - `config.php` – Database connection file
 
-## 📷 Screenshots
-
-> *(Add screenshots here if available)*
-
-## 📚 How to Use
-
-1. Clone the repository:
-   ```bash
    git clone https://github.com/HasiniHemathiilaka/Laboratory-Booking-System.git
