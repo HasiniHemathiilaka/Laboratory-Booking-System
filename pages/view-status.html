@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>View Booking Status</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body class="dashboard-background">
+  <div class="dashboard-container">
+    <h2 class="form-title">View Your Booking Status</h2>
+
+    <form action="../php/view-status.php" method="POST">
+      <div class="form-group">
+        <label for="instructor_id">Instructor ID:</label>
+        <input type="number" name="instructor_id" id="instructor_id" required>
+      </div>
+      <button type="submit" class="btn-submit">📋 View Bookings</button>
+    </form>
+
+    <div style="margin-top: 30px;">
+      <a href="instructor-dashboard.html" class="tab-button">🔙 Back to Dashboard</a>
+    </div>
+  </div>
+</body>
+</html>

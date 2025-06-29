@@ -1,0 +1,70 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Manage Lab Schedule</title>
+  <link rel="stylesheet" href="../assets/styles.css"/>
+</head>
+<body class="dashboard-background">
+  <div class="dashboard-container">
+    <h2 class="form-title">Manage Lab Schedule</h2>
+
+    <form id="scheduleForm" action="../php/add-schedule.php" method="POST">
+      <div class="form-group">
+        <label for="dept_id">Department ID:</label>
+        <input type="number" id="dept_id" name="dept_id" required>
+      </div>
+
+      <div class="form-group">
+        <label for="lab_id">Lab ID:</label>
+        <input type="number" id="lab_id" name="lab_id" required>
+      </div>
+
+      <div class="form-group">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+      </div>
+
+      <div class="form-group">
+        <label for="timeslot">Time Slot:</label>
+        <input type="text" id="timeslot" name="timeslot" placeholder="e.g., 9:00-11:00" required>
+      </div>
+
+      <div class="form-group">
+        <label for="isbooked">Is Booked:</label>
+        <select id="isbooked" name="isbooked">
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn-submit">➕ Add Schedule</button>
+    </form>
+
+    <div id="successBox" class="success-box"></div>
+
+    <!-- Back to Dashboard Button -->
+    <div style="margin-top: 30px;">
+      <a href="labto-dashboard.html" class="tab-button">🔙 Back to Dashboard</a>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const successBox = document.getElementById("successBox");
+
+    if (params.get("success") === "1") {
+      successBox.textContent = "✅ Schedule added successfully!";
+      successBox.classList.add("show");
+    } else if (params.get("success") === "0") {
+      successBox.textContent = "❌ Failed to add schedule. Please check your inputs.";
+      successBox.classList.add("show");
+      successBox.style.borderColor = "#cc0000";
+      successBox.style.backgroundColor = "#ffd6d6";
+      successBox.style.color = "#a70000";
+    }
+  </script>
+</body>
+</html>

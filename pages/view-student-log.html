@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>View Student Log</title>
+  <link rel="stylesheet" href="../assets/styles.css"/>
+</head>
+<body class="dashboard-background">
+  <div class="dashboard-container">
+    <h2>View Student Access</h2>
+    <form action="../php/view-student-log.php" method="POST">
+      <label for="student_id">Student ID:</label>
+      <input type="number" id="student_id" name="student_id" required>
+
+      <button type="submit">View Log</button>
+    </form>
+  </div>
+</body>
+</html>

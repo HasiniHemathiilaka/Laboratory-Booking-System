@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Student Lab Access</title>
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body class="dashboard-background">
+  <div class="dashboard-container">
+    <h2 class="form-title">Log Student Lab Access</h2>
+
+    <form action="../php/student-access.php" method="POST">
+      <div class="form-group">
+        <label for="log_id">Log ID:</label>
+        <input type="number" id="log_id" name="log_id" required />
+      </div>
+
+      <div class="form-group">
+        <label for="dept_id">Department ID:</label>
+        <input type="number" id="dept_id" name="dept_id" required />
+      </div>
+
+      <div class="form-group">
+        <label for="lab_id">Lab ID:</label>
+        <input type="number" id="lab_id" name="lab_id" required />
+      </div>
+
+      <div class="form-group">
+        <label for="student_id">Student ID:</label>
+        <input type="number" id="student_id" name="student_id" required />
+      </div>
+
+      <div class="form-group">
+        <label for="checkin">Check-in Time:</label>
+        <input type="datetime-local" id="checkin" name="checkin" required />
+      </div>
+
+      <div class="form-group">
+        <label for="checkout">Check-out Time:</label>
+        <input type="datetime-local" id="checkout" name="checkout" required />
+      </div>
+
+      <button type="submit" class="btn-submit">👥 Log Student Access</button>
+    </form>
+
+    <div id="successBox" class="success-box"></div>
+
+    <!-- Back to Dashboard Button -->
+    <div style="margin-top: 30px;">
+      <a href="labto-dashboard.html" class="tab-button">🔙 Back to Dashboard</a>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const successBox = document.getElementById("successBox");
+
+    if (params.get("success") === "1") {
+      successBox.textContent = "✅ Student access logged successfully!";
+      successBox.classList.add("show");
+    } else if (params.get("success") === "0") {
+      successBox.textContent = "❌ Failed to log student access. Please check your input.";
+      successBox.classList.add("show");
+      successBox.style.borderColor = "#cc0000";
+      successBox.style.backgroundColor = "#ffd6d6";
+      successBox.style.color = "#a70000";
+    }
+  </script>
+</body>
+</html>

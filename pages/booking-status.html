@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>View Booking Status</title>
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body class="dashboard-background">
+  <div class="dashboard-container">
+    <h2 class="form-title">View Booking Status</h2>
+
+    <!-- Form to enter Instructor ID and view bookings -->
+    <form action="" method="GET">
+      <div class="form-group">
+        <label for="instructor_id">Instructor ID:</label>
+        <input type="number" id="instructor_id" name="instructor_id" required />
+      </div>
+      <button type="submit" class="btn-submit">📋 View Bookings</button>
+    </form>
+
+    <!-- Display booking table for the given instructor -->
+    <?php if (isset($_GET['instructor_id'])): ?>
+      <iframe src="../php/view-status-table.php?instructor_id=<?= htmlspecialchars($_GET['instructor_id']) ?>"
+              width="100%" height="300px" style="border:none; margin-top:20px;"></iframe>
+    <?php endif; ?>
+
+    <!-- Back Button -->
+    <div style="margin-top: 30px;">
+      <a href="instructor-dashboard.html" class="tab-button">🔙 Back to Dashboard</a>
+    </div>
+  </div>
+</body>
+</html>

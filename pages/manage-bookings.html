@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Review Booking Requests</title>
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body class="dashboard-background">
+  <div class="dashboard-container">
+    <h2 class="form-title">Pending Lab Booking Requests</h2>
+
+    <!-- Booking Table (loaded via iframe or PHP include or separate page) -->
+    <iframe src="../php/list-bookings.php" width="100%" height="300px" style="border:none; margin-bottom: 30px;"></iframe>
+
+    <!-- Update Status Form -->
+    <h3 style="margin-top: 20px;">Update Booking Status</h3>
+    <form action="../php/update-booking-status.php" method="POST">
+      <div class="form-group">
+        <label for="booking_id">Booking ID:</label>
+        <input type="number" name="booking_id" id="booking_id" required />
+      </div>
+
+      <div class="form-group">
+        <label for="new_status">New Status:</label>
+        <select name="new_status" id="new_status" required>
+          <option value="">-- Select --</option>
+          <option value="Approved">✅ Approved</option>
+          <option value="Rejected">❌ Rejected</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn-submit">🔁 Update Booking Status</button>
+    </form>
+
+    <div id="successBox" class="success-box"></div>
+
+    <!-- Back to Dashboard -->
+    <div style="margin-top: 30px;">
+      <a href="labto-dashboard.html" class="tab-button">🔙 Back to Dashboard</a>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const successBox = document.getElementById("successBox");
+
+    if (params.get("success") === "1") {
+      successBox.textContent = "✅ Booking status updated successfully!";
+      successBox.classList.add("show");
+    } else if (params.get("success") === "0") {
+      successBox.textContent = "❌ Failed to update. Please check Booking ID.";
+      successBox.classList.add("show");
+      successBox.style.borderColor = "#cc0000";
+      successBox.style.backgroundColor = "#ffd6d6";
+      successBox.style.color = "#a70000";
+    }
+  </script>
+</body>
+</html>

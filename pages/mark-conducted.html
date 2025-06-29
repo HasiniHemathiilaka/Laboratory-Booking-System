@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mark Lab as Conducted</title>
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body class="dashboard-background">
+  <div class="dashboard-container">
+    <h2 class="form-title">✅ Mark Lab as Conducted</h2>
+
+    <form action="../php/mark-conducted.php" method="POST">
+      <div class="form-group">
+        <label for="booking_id">Booking ID:</label>
+        <input type="number" id="booking_id" name="booking_id" required>
+      </div>
+
+      <div class="form-group">
+        <label for="schedule_id">Schedule ID:</label>
+        <input type="number" id="schedule_id" name="schedule_id" required>
+      </div>
+
+      <button type="submit" class="btn-submit">✔️ Mark as Conducted</button>
+    </form>
+
+    <!-- Back to dashboard -->
+    <div style="margin-top: 30px;">
+      <a href="labto-dashboard.html" class="tab-button">🔙 Back to Dashboard</a>
+    </div>
+  </div>
+</body>
+</html>
+

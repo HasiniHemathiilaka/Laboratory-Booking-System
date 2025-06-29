@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Log Lab Usage</title>
+<link rel="stylesheet" href="../assets/styles.css"></head>
+<body class="dashboard-background">
+<div class="dashboard-container">
+<h2>Log Lab Usage</h2>
+<form action="../php/log-usage.php" method="POST">
+  <label>Department ID:</label><input type="number" name="dept_id" required>
+  <label>Lab ID:</label><input type="number" name="lab_id" required>
+  <label>Booking ID:</label><input type="number" name="booking_id" required>
+  <label>Log ID:</label><input type="number" name="log_id" required>
+  <button type="submit">Log Usage</button>
+</form>
+</div></body></html>

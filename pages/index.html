@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lab Booking System - Login</title>
+  <link rel="stylesheet" href="../assets/styles.css"/>
+</head>
+<body class="login-background">
+
+  
+<div class="login-blur-wrapper"></div>
+
+  <!-- 🔷 Navigation Bar -->
+  <div class="nav-bar">
+    <a href="index.html" class="active">🔐 Sign In</a>
+    <a href="signup.html">📝 Sign Up</a>
+  </div>
+
+  <div class="login-container">
+    <!-- Logo -->
+    <img src="../assets/logo.png" alt="University Logo" class="login-logo" />
+
+    <h1>UNIVERSITY OF JAFFNA<br>FACULTY OF ENGINEERING<br>LAB BOOKING SYSTEM</h1>
+
+    <form action="../php/login.php" method="POST">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <p style="margin-top: 20px;">
+      New user? <a href="signup.html" style="color: #004080; font-weight: bold;">Register here</a>
+    </p>
+  </div>
+</body>
+</html>

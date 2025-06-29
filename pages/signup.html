@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - Lab Booking System</title>
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body class="login-background">
+
+  <!-- 🔷 Top-right nav bar -->
+  <div class="nav-bar">
+    <a href="index.html">🔐 Sign In</a>
+    <a href="signup.html" class="active">📝 Sign Up</a>
+  </div>
+
+  <!-- 🔷 Registration form -->
+  <div class="login-container">
+    <img src="../assets/logo.png" alt="University Logo" class="login-logo" />
+    <h1>Sign Up to Lab Booking System</h1>
+
+    <form action="../php/signup.php" method="POST">
+      <label>First Name:</label>
+      <input type="text" name="first" required>
+
+      <label>Middle Name:</label>
+      <input type="text" name="middle">
+
+      <label>Last Name:</label>
+      <input type="text" name="last" required>
+
+      <label>Email:</label>
+      <input type="email" name="email" required>
+
+      <label>Password:</label>
+      <input type="password" name="password" required>
+
+      <label>Role:</label>
+      <select name="role" required onchange="showFields(this.value)">
+        <option value="">-- Select --</option>
+        <option value="student">Student</option>
+        <option value="instructor">Instructor</option>
+        <option value="labto">LabTO</option>
+        <option value="lectureincharge">Lecture Incharge</option>
+      </select>
+
+      <div id="roleFields"></div>
+
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <script>
+    function showFields(role) {
+      const container = document.getElementById('roleFields');
+      container.innerHTML = '';
+      if (role === 'student') {
+        container.innerHTML = '<label>Batch:</label><input type="text" name="batch" required>';
+      } else if (role === 'instructor') {
+        container.innerHTML = '<label>Course ID:</label><input type="number" name="course_id" required>';
+      } else if (role === 'labto') {
+        container.innerHTML = '<label>Technical Skill:</label><input type="text" name="tech_skill" required>';
+      } else if (role === 'lectureincharge') {
+        container.innerHTML = '<label>Years of Experience:</label><input type="number" name="experience" required>';
+      }
+    }
+  </script>
+</body>
+</html>

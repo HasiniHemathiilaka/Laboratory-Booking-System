@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Submit Lab Booking</title>
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body class="dashboard-background">
+  <div class="dashboard-container">
+    <h2 class="form-title">Submit Lab Booking</h2>
+    
+    <form action="../php/submit-booking.php" method="POST">
+      <div class="form-group">
+        <label for="Department_ID">Department ID:</label>
+        <input type="number" id="Department_ID" name="Department_ID" required />
+      </div>
+      <div class="form-group">
+        <label for="Lab_ID">Lab ID:</label>
+        <input type="number" id="Lab_ID" name="Lab_ID" required />
+      </div>
+      <div class="form-group">
+        <label for="instructor_id">Instructor ID:</label>
+        <input type="number" id="instructor_id" name="instructor_id" required />
+      </div>
+
+      <div class="form-group">
+        <label for="lecture_id">Lecture ID:</label>
+        <input type="number" id="lecture_id" name="lecture_id" required />
+      </div>
+
+      <div class="form-group">
+        <label for="booking_date">Booking Date:</label>
+        <input type="date" id="booking_date" name="booking_date" required />
+      </div>
+
+      <div class="form-group">
+        <label for="start_time">Start Time:</label>
+        <input type="time" id="start_time" name="start_time" required />
+      </div>
+
+      <div class="form-group">
+        <label for="end_time">End Time:</label>
+        <input type="time" id="end_time" name="end_time" required />
+      </div>
+
+      <div class="form-group">
+        <label for="student_capacity">Student Capacity:</label>
+        <input type="number" id="student_capacity" name="student_capacity" required />
+      </div>
+
+      <button type="submit" class="btn-submit">➕ Submit Booking</button>
+    </form>
+
+    <div id="successBox" class="success-box"></div>
+
+    <!-- Back to Dashboard Button -->
+    <div style="margin-top: 30px;">
+      <a href="instructor-dashboard.html" class="tab-button">🔙 Back to Dashboard</a>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const successBox = document.getElementById("successBox");
+
+    if (params.get("success") === "1") {
+      successBox.textContent = "✅ Booking submitted successfully!";
+      successBox.classList.add("show");
+    } else if (params.get("success") === "0") {
+      successBox.textContent = "❌ Failed to submit booking. Check inputs or try again.";
+      successBox.classList.add("show");
+      successBox.style.borderColor = "#cc0000";
+      successBox.style.backgroundColor = "#ffd6d6";
+      successBox.style.color = "#a70000";
+    }
+  </script>
+</body>
+</html>
